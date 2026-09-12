@@ -3,56 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexoGemsX - Diamantes a los mejores precios</title>
+<title>NexoGemsX - Recarga Free Fire Argentina</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;min-height:100vh}
-header{padding:20px;text-align:center;background:rgba(0,0,0,0.3)}
-header h1{font-size:32px;background:linear-gradient(90deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
-header p{opacity:0.8;margin-top:5px}
-.container{max-width:900px;margin:20px auto;padding:15px}
-.card{background:rgba(255,255,255,0.08);border:1px solid rgba(168,85,247,0.3);border-radius:16px;padding:20px;margin-bottom:20px}
-.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.pack{background:linear-gradient(135deg,#7c3aed,#3b82f6);border-radius:12px;padding:15px;text-align:center;cursor:pointer}
-.pack .price{font-weight:bold;color:#fde047;margin-top:8px}
-.btn{width:100%;background:#22c55e;color:white;border:none;padding:15px;border-radius:12px;font-size:18px;font-weight:bold;margin-top:10px}
-input{width:100%;padding:12px;border-radius:8px;border:none;margin:8px 0;background:rgba(255,255,255,0.1);color:white}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
+body{background:#0a0a15;color:white;min-height:100vh}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#0f0f1a;border-bottom:1px solid #1e1e32;position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,#6d5bff,#8b5cf6);border-radius:12px;display:grid;place-items:center}
+.btn-login{border:1px solid #2a2a4a;background:#1a1a2e;color:#cbd5e1;padding:8px 16px;border-radius:20px;font-size:14px}
+.hero{text-align:center;padding:36px 16px 20px;background:radial-gradient(600px at 50% -10%,#2a1a6a 0%,#0a0a15 60%)}
+.hero h1{font-size:36px;font-weight:900;line-height:1.1}
+.hero h1 span{color:#8b5cf6}
+.hero p{color:#9aa0b3;margin-top:12px;font-size:16px;max-width:340px;margin-left:auto;margin-right:auto}
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.badge{background:#15152a;border:1px solid #2a2a4a;padding:10px 16px;border-radius:30px;font-size:13px;color:#cbd5e1}
+.discount{margin:26px 16px;border:1px solid #5b4bff55;background:#16162a;border-radius:18px;padding:16px}
+.discount-top{display:flex;justify-content:space-between;align-items:center;color:#a78bfa;font-weight:800;font-size:14px;text-transform:uppercase}
+.discount input{width:100%;margin-top:12px;background:#0a0a15;border:1px solid #2a2a4a;border-radius:12px;padding:14px;color:white;font-size:16px}
+.arg-badge{display:flex;justify-content:center;margin:18px 0}
+.arg-badge span{border:1px solid #5b4bff88;background:#15152a;padding:10px 22px;border-radius:30px;display:flex;gap:8px;align-items:center;font-weight:700}
+.section-title{text-align:center;font-size:28px;font-weight:900;margin:26px 0 8px}
+.line{width:60px;height:5px;background:#8b5cf6;border-radius:10px;margin:0 auto 22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}
+.card{position:relative;background:radial-gradient(200px at 70% 50%,#1a3a5a33,#101024);border:1px solid #2a2a55;border-radius:16px;padding:14px;overflow:hidden}
+.card.sel{border-color:#8b5cf6;box-shadow:0 0 0 2px #8b5cf6}
+.card h3{font-size:14px;color:#8a8fa3}
+.card .price{color:#a78bfa;font-weight:900;font-size:19px;margin-top:6px}
+.card .points{font-size:11px;color:#7aa0ff;margin-top:4px}
+.pop{position:absolute;top:0;right:0;background:#3b82f6;color:white;font-size:11px;font-weight:800;padding:6px 10px;border-radius:0 16px 0 12px}
+.dot{position:absolute;right:18px;bottom:18px;width:26px;height:26px;background:#8b5cf655;border-radius:50%}
+.buy-box{margin:26px 16px;background:#0f0f1a;border-top:1px solid #1e1e32;padding-top:20px}
+.buy-box h2{font-size:28px}
+.buy-box .sub{color:#8a8fa3;font-size:14px;margin:6px 0 16px}
+.select{width:100%;background:#0a0a15;border:2px solid #7c3aed;border-radius:16px;padding:16px;color:white;font-weight:700}
+.qty{display:flex;align-items:center;gap:18px;background:#15152a;border:1px solid #2a2a4a;border-radius:30px;padding:10px 16px;margin:14px 0}
+.qty button{background:none;border:none;color:white;font-size:26px;width:36px}
+.qty span{font-size:18px}
+.price-big{text-align:center;margin:14px 0}
+.price-big small{color:#8a8fa3}
+.price-big div{color:#a78bfa;font-size:32px;font-weight:900}
+.benef{background:#16162a;border:1px solid #2a2a4a;border-radius:16px;padding:14px;margin:16px}
+.benef b{color:#a78bfa;display:block;margin-bottom:6px;text-transform:uppercase;font-size:13px}
+.btn-primary{width:100%;background:#8b5cf6;border:none;color:#0a0a15;font-weight:900;padding:16px;border-radius:30px;font-size:16px;margin:10px 0}
+.btn-sec{width:100%;background:transparent;border:1.5px solid #5a5a6a;color:white;font-weight:800;padding:15px;border-radius:30px;font-size:16px}
+.reviews{display:flex;justify-content:space-between;align-items:center;padding:20px 16px;border-top:1px solid #1e1e32;margin-top:22px}
+.reviews b{font-size:14px}
+.reviews .score{color:#facc15;font-size:28px;font-weight:900}
+.reviews .score span{color:#8a8fa3;font-size:14px}
 </style>
 </head>
 <body>
-<header>
-<h1>NexoGemsX</h1>
-<p>Diamantes a los mejores precios - Free Fire</p>
-</header>
-<div class="container">
-<div class="card">
-<h2>💎 Elige tu paquete</h2>
-<div class="packs">
-<div class="pack" onclick="sel(110,2)"><h3>110</h3><p>Diamantes</p><div class="price">$2 USD</div></div>
-<div class="pack" onclick="sel(210,3.5)"><h3>210</h3><p>Diamantes</p><div class="price">$3.5 USD</div></div>
-<div class="pack" onclick="sel(355,5)"><h3>355</h3><p>Diamantes</p><div class="price">$5 USD</div></div>
-<div class="pack" onclick="sel(720,10)"><h3>720</h3><p>Diamantes</p><div class="price">$10 USD</div></div>
-<div class="pack" onclick="sel(1450,20)"><h3>1450</h3><p>Diamantes</p><div class="price">$20 USD</div></div>
-<div class="pack" onclick="sel(2180,30)"><h3>2180</h3><p>Diamantes</p><div class="price">$30 USD</div></div>
+<header><div class="logo"><div class="logo-icon">◆</div>NexoGemsX</div><button class="btn-login">◍ Ingresar</button></header>
+<div class="hero">
+<h1>Recargá <span>Free Fire</span></h1>
+<p>Diamantas para cuentas de Argentina. Elegí tu paquete y realizá tu pedido de forma rápida.</p>
+<div class="badges">
+<div class="badge">✉ Entrega rápida</div><div class="badge">🛡 Compra segura</div><div class="badge">◆ Soporte</div>
 </div>
 </div>
-<div class="card">
-<h2>🎮 Datos del jugador</h2>
-<input id="id" placeholder="ID de Free Fire">
-<div id="res" style="margin-top:10px;color:#fde047;font-weight:bold"></div>
-<button class="btn" onclick="comprar()">Comprar por WhatsApp</button>
+<div class="discount">
+<div class="discount-top"><div>🎁 ¿TENÉS UN CÓDIGO DE DESCUENTO?</div><div style="text-align:right">¡Usalo<br>aquí!</div></div>
+<input placeholder="Ej: NEXO20" id="cupon">
 </div>
+<div class="arg-badge"><span>🇦🇷 Argentina ●</span></div>
+<div class="section-title">Elegí tu paquete</div><div class="line"></div>
+<div class="grid" id="grid"></div>
+<div class="buy-box">
+<h2>Free Fire</h2><div class="sub">🛈 Canjeable sólo en <b style="color:white">Argentina</b></div>
+<select class="select" id="selPack" onchange="update()"></select>
+<div style="background:#15152a;border-radius:20px;padding:12px;margin-top:14px">
+<div class="qty"><button onclick="chg(-1)">−</button><span id="q">1</span><button onclick="chg(1)">+</button></div>
+<div class="price-big"><small>ARS</small><div id="bigPrice">$1.500</div></div>
+</div>
+<div class="benef"><b>BENEFICIOS POR TU COMPRA</b>⭐ Recibí tus diamantes después de completar el pedido.</div>
+<button class="btn-primary" onclick="comprar()">Comprar ahora</button>
+<button class="btn-sec" onclick="comprar()">Agregar al carrito</button>
+<div class="reviews"><b>⭐ RESEÑAS DE CLIENTES</b><div class="score">5.0 <span>(300)</span></div></div>
 </div>
 <script>
-let c=0,p=0;
-function sel(ca,pr){c=ca;p=pr;document.getElementById('res').innerText='Seleccionado: '+ca+' Diamantes por $'+pr+' USD';}
+const packs=[{d:110,p:1500,pts:1},{d:342,p:5200,pts:1},{d:572,p:7800,pts:2},{d:1166,p:13800,pts:3,pop:true},{d:2398,p:27200,pts:4},{d:6160,p:69500,pts:10}];
+let sel=packs[0],qty=1;
+const grid=document.getElementById('grid'), selPack=document.getElementById('selPack');
+packs.forEach((x,i)=>{
+let el=document.createElement('div'); el.className='card'+(i==0?' sel':''); if(x.pop) el.innerHTML+=`<div class="pop">★ MÁS POPULAR</div>`;
+el.innerHTML+=`<h3>${x.d} Diamantes</h3><div class="price">ARS ${x.p.toLocaleString('es-AR')}</div><div class="points">◆ +${x.pts} Nexo Point${x.pts>1?'s':''}</div><div class="dot"></div>`;
+el.onclick=()=>{document.querySelectorAll('.card').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');sel=x;selPack.value=i;update()};grid.appendChild(el);
+let op=document.createElement('option'); op.value=i; op.text=`${x.d} Diamantes - ARS ${x.p.toLocaleString('es-AR')}`; selPack.appendChild(op);
+});
+function update(){ sel=packs[selPack.value]; document.querySelectorAll('.card').forEach((c,i)=>c.classList.toggle('sel',i==selPack.value)); document.getElementById('bigPrice').innerText='$'+(sel.p*qty).toLocaleString('es-AR'); document.getElementById('q').innerText=qty; }
+function chg(n){qty=Math.max(1,qty+n);update()}
 function comprar(){
-let id=document.getElementById('id').value;
-if(!id){alert('Poné tu ID');return;}
-if(c==0){alert('Elegí un paquete');return;}
-let m=`Hola NexoGemsX! Quiero ${c} diamantes por $${p} USD. Mi ID: ${id}`;
-window.open('https://wa.me/5490000000000?text='+encodeURIComponent(m),'_blank');
+window.open('https://discordapp.com/users/1401356663897853962','_blank');
 }
+update();
 </script>
 </body>
   </html>
