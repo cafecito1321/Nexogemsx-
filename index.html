@@ -1,1 +1,58 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexoGemsX - Diamantes a los mejores precios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;min-height:100vh}
+header{padding:20px;text-align:center;background:rgba(0,0,0,0.3)}
+header h1{font-size:32px;background:linear-gradient(90deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
+header p{opacity:0.8;margin-top:5px}
+.container{max-width:900px;margin:20px auto;padding:15px}
+.card{background:rgba(255,255,255,0.08);border:1px solid rgba(168,85,247,0.3);border-radius:16px;padding:20px;margin-bottom:20px}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.pack{background:linear-gradient(135deg,#7c3aed,#3b82f6);border-radius:12px;padding:15px;text-align:center;cursor:pointer}
+.pack .price{font-weight:bold;color:#fde047;margin-top:8px}
+.btn{width:100%;background:#22c55e;color:white;border:none;padding:15px;border-radius:12px;font-size:18px;font-weight:bold;margin-top:10px}
+input{width:100%;padding:12px;border-radius:8px;border:none;margin:8px 0;background:rgba(255,255,255,0.1);color:white}
+</style>
+</head>
+<body>
+<header>
+<h1>NexoGemsX</h1>
+<p>Diamantes a los mejores precios - Free Fire</p>
+</header>
+<div class="container">
+<div class="card">
+<h2>💎 Elige tu paquete</h2>
+<div class="packs">
+<div class="pack" onclick="sel(110,2)"><h3>110</h3><p>Diamantes</p><div class="price">$2 USD</div></div>
+<div class="pack" onclick="sel(210,3.5)"><h3>210</h3><p>Diamantes</p><div class="price">$3.5 USD</div></div>
+<div class="pack" onclick="sel(355,5)"><h3>355</h3><p>Diamantes</p><div class="price">$5 USD</div></div>
+<div class="pack" onclick="sel(720,10)"><h3>720</h3><p>Diamantes</p><div class="price">$10 USD</div></div>
+<div class="pack" onclick="sel(1450,20)"><h3>1450</h3><p>Diamantes</p><div class="price">$20 USD</div></div>
+<div class="pack" onclick="sel(2180,30)"><h3>2180</h3><p>Diamantes</p><div class="price">$30 USD</div></div>
+</div>
+</div>
+<div class="card">
+<h2>🎮 Datos del jugador</h2>
+<input id="id" placeholder="ID de Free Fire">
+<div id="res" style="margin-top:10px;color:#fde047;font-weight:bold"></div>
+<button class="btn" onclick="comprar()">Comprar por WhatsApp</button>
+</div>
+</div>
+<script>
+let c=0,p=0;
+function sel(ca,pr){c=ca;p=pr;document.getElementById('res').innerText='Seleccionado: '+ca+' Diamantes por $'+pr+' USD';}
+function comprar(){
+let id=document.getElementById('id').value;
+if(!id){alert('Poné tu ID');return;}
+if(c==0){alert('Elegí un paquete');return;}
+let m=`Hola NexoGemsX! Quiero ${c} diamantes por $${p} USD. Mi ID: ${id}`;
+window.open('https://wa.me/5490000000000?text='+encodeURIComponent(m),'_blank');
+}
+</script>
+</body>
+  </html>
