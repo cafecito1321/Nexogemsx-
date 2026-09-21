@@ -4,64 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imanola - Elegancia en Cuero</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#fff}
-.header{background:#40264E;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#F9B5C9;position:sticky;top:0;z-index:99}
-.logo{font-weight:800;letter-spacing:2px;display:flex;flex-direction:column;align-items:center;line-height:1}
-.logo b{font-size:20px} .logo span{font-size:8px;letter-spacing:1px;font-weight:400}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#eee}
-.hero{position:relative;background:#fff;height:210px;overflow:hidden}
-.hero img{width:100%;height:140px;object-fit:cover}
-.hero h3{padding:10px 12px;font-size:15px;color:#40264E;display:flex;justify-content:space-between}
-.prod-header{padding:16px 14px;display:flex;justify-content:space-between;align-items:center}
-.prod-header h2{font-size:13px;color:#40264E}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#eee}
-.pcard{background:#fff;position:relative}
-.pimg{height:190px;background:radial-gradient(circle at center,#7A4E8E 0%, #4B2A5C 100%);display:flex;align-items:center;justify-content:center;position:relative}
-.pimg.pink{background:radial-gradient(circle at center,#E8B5C0 0%, #D9A0AD 100%)}
-.pimg img{width:85%;height:85%;object-fit:contain}
-.off{position:absolute;bottom:10px;left:10px;background:#fff;color:#40264E;font-size:9px;font-weight:800;padding:3px 6px;border-radius:3px}
-.sin{position:absolute;bottom:10px;left:10px;background:#40264E;color:#fff;font-size:8px;font-weight:700;padding:3px 6px;border-radius:3px}
-.pinfo{padding:10px}
-.pinfo h4{font-size:10px;font-weight:700;color:#444;text-transform:uppercase;min-height:26px}
-.price{font-size:12px;font-weight:800;margin-top:6px}
-.old{font-size:10px;color:#999;text-decoration:line-through}
-.detail{padding:18px;background:#FFEFF3}
-.btn{width:100%;background:#FFD6DE;color:#40264E;border:none;padding:14px;font-weight:800;border-radius:4px}
-.whatsapp{position:fixed;bottom:24px;right:18px;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:28px;text-decoration:none;z-index:100}
+.header{background:#3E224C;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;color:#F9B5C9}
+.logo{text-align:center;font-weight:900;font-size:22px;line-height:1}
+.logo span{font-size:7px;letter-spacing:2px;font-weight:400}
+.banner{height:180px;background:url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600') center/cover}
+.cats{display:flex;justify-content:space-around;padding:28px 10px 18px;text-align:center;background:#FFF9FB}
+.cat{width:76px}
+.cat-circle{width:70px;height:70px;border-radius:50%;background:#3E224C;border:3px solid #F9B5C9;display:flex;align-items:center;justify-content:center;font-size:32px;color:#F9B5C9}
+.cat p{font-size:12px;margin-top:10px;color:#3E224C}
+.title{ text-align:center;padding:26px 0 14px;font-weight:800;letter-spacing:2px;color:#3E224C;font-size:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 16px 20px}
+.card{}
+.card-img{height:220px;background:#5B2E75;border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card h4{margin-top:10px;font-size:13px;color:#3E224C;font-weight:500}
+.wa{position:fixed;bottom:18px;right:16px;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:30px;text-decoration:none;z-index:99}
 </style>
 </head>
 <body>
-<div class="header"><div>☰</div><div class="logo"><b>☾ imanola</b><span>ELEGANCIA EN CUERO</span></div><div>○ ◉</div></div>
-
-<div class="hero-grid">
-<div class="hero"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400"><h3>Modelo KENDRA <span>→</span></h3></div>
-<div class="hero"><img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7?w=400"><h3>Mochila PAUL <span>→</span></h3></div>
-<div class="hero"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"><h3>Modelo KRISBEL <span>→</span></h3></div>
-<div class="hero"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400"><h3>Compañera de aventuras <span>→</span></h3></div>
+<div class="header"><div style="display:flex;gap:18px">☰ ⌕</div><div class="logo">👜 imanola<span>ELEGANCIA EN CUERO</span></div><div style="display:flex;gap:16px">👤 🛍️</div></div>
+<div class="banner"></div>
+<div class="cats">
+<div class="cat"><div class="cat-circle">👜</div><p>Carteras |<br>Bandole...</p></div>
+<div class="cat"><div class="cat-circle">👢</div><p>Calzado</p></div>
+<div class="cat"><div class="cat-circle">👝</div><p>Accesorios</p></div>
+<div class="cat"><div class="cat-circle">%</div><p>Sale</p></div>
 </div>
-
-<div class="prod-header"><h2>Calzado - Botas 100% cuero argentino</h2><div style="border:1px solid #ccc;padding:4px 8px;border-radius:4px;font-size:11px">FILTRAR</div></div>
+<div class="title">COLECCIÓN</div>
 <div class="grid">
-<div class="pcard"><div class="pimg"><img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400"><div class="sin">SIN STOCK</div></div><div class="pinfo"><h4>Botineta RAIZEL de caña baja con tachas</h4><div class="price">$189.500,00</div></div></div>
-<div class="pcard"><div class="pimg pink"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400"><div class="sin">SIN STOCK</div></div><div class="pinfo"><h4>Botineta ROSELLE de caña baja estilo texano</h4><div class="price">$179.500,00</div></div></div>
-<div class="pcard"><div class="pimg"><span class="off">42% OFF</span><img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=400"></div><div class="pinfo"><h4>Porta celular BLONDIE Metalizado</h4><div class="price">$38.000,00 <span class="old">$65.000,00</span></div></div></div>
-<div class="pcard"><div class="pimg pink"><span class="off">23% OFF</span><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"></div><div class="pinfo"><h4>Riñonera BLENI</h4><div class="price">$85.000,00 <span class="old">$117.500,00</span></div></div></div>
+<div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"></div><h4>Bandolera Marinera</h4></div>
+<div class="card"><div class="card-img" style="background:#6D4C78"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"></div><h4>Mochila PAUL</h4></div>
+<div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400"></div><h4>Modelo KENDRA</h4></div>
+<div class="card"><div class="card-img" style="background:#7A4E8E"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400"></div><h4>Modelo KRISBEL</h4></div>
 </div>
-
-<div class="detail">
-<button class="btn">AGREGAR AL CARRITO</button>
-<h4 style="margin-top:16px;font-size:12px;color:#40264E">Detalle del producto:</h4>
-<ul style="margin-top:10px;font-size:11px;color:#555;line-height:1.6;padding-left:14px">
-<li>100% cuero argentino</li>
-<li>Interior forrado en tela estampada</li>
-<li>Cierre metálico YKK</li>
-<li>Medidas: 40cm ancho, 36cm alto</li>
-<li>Peso: 609 gramos</li>
-</ul>
-</div>
-<a class="whatsapp" href="https://wa.me/5491123456789">W</a>
+<a class="wa" href="https://wa.me/5491123456789">W</a>
 </body>
-                                                                       </html>
+</html>
