@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imanola - Elegancia en Cuero</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#fff}
-.header{background:#3E224C;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;color:#F9B5C9}
-.logo{text-align:center;font-weight:900;font-size:22px;line-height:1}
-.logo span{font-size:7px;letter-spacing:2px;font-weight:400}
-.banner{height:180px;background:url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600') center/cover}
-.cats{display:flex;justify-content:space-around;padding:28px 10px 18px;text-align:center;background:#FFF9FB}
-.cat{width:76px}
-.cat-circle{width:70px;height:70px;border-radius:50%;background:#3E224C;border:3px solid #F9B5C9;display:flex;align-items:center;justify-content:center;font-size:32px;color:#F9B5C9}
-.cat p{font-size:12px;margin-top:10px;color:#3E224C}
-.title{ text-align:center;padding:26px 0 14px;font-weight:800;letter-spacing:2px;color:#3E224C;font-size:18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 16px 20px}
-.card{}
-.card-img{height:220px;background:#5B2E75;border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card-img img{width:100%;height:100%;object-fit:cover}
-.card h4{margin-top:10px;font-size:13px;color:#3E224C;font-weight:500}
-.wa{position:fixed;bottom:18px;right:16px;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:30px;text-decoration:none;z-index:99}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system}
+body{background:#F8F2F6;color:#3E224C}
+.header{background:#3E224C;color:#F9B5C9;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;position:sticky;top:0;z-index:10}
+.cats{display:flex;justify-content:space-around;padding:18px 8px;background:white;border-bottom:1px solid #f0d6e0}
+.cat{width:72px;text-align:center;cursor:pointer}
+.cat-circle{width:66px;height:66px;border-radius:50%;border:2.5px solid #F9B5C9;display:grid;place-items:center;background:#3E224C;color:#F9B5C9;font-size:26px;margin:0 auto}
+.cat.active .cat-circle{background:#FF2E6D;border-color:#FF2E6D;color:white}
+.cat p{font-size:9px;margin-top:6px;font-weight:600;line-height:1.2}
+.title{text-align:center;padding:18px;font-weight:800;letter-spacing:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 12px 90px}
+.card{background:#4A2B5A;border-radius:14px;overflow:hidden;cursor:pointer;position:relative}
+.card img{width:100%;height:176px;object-fit:cover;background:#5B3370}
+.card .inf{padding:10px;background:white;min-height:86px}
+.card .inf h4{font-size:11.5px;font-weight:700;min-height:28px}
+.card .price{font-weight:900;font-size:13px;margin-top:4px}
+.badge{position:absolute;top:8px;left:8px;background:#FF2E6D;color:white;font-size:10px;font-weight:900;padding:4px 8px;border-radius:6px}
+.badge.black{background:#444}
+#modal{display:none;position:fixed;inset:0;background:#fff;z-index:99;overflow:auto}
+.m-top{background:#3E224C;color:#F9B5C9;display:flex;justify-content:space-between;padding:12px 14px;position:sticky;top:0}
+.m-img{height:380px;background:#5B2E75;display:grid;place-items:center}
+.m-img img{width:100%;height:100%;object-fit:contain}
+.m-body{padding:16px}
+.btn{width:100%;background:#F9B5C9;color:#3E224C;border:none;padding:16px;border-radius:8px;font-weight:900;margin:12px 0}
+.detail{font-size:13px;line-height:1.6;color:#444;margin-top:12px}
+.chip{border:1px solid #ddd;padding:4px 8px;font-size:10px;border-radius:4px;margin-right:4px;background:#fff}
 </style>
 </head>
 <body>
-<div class="header"><div style="display:flex;gap:18px">☰ ⌕</div><div class="logo">👜 imanola<span>ELEGANCIA EN CUERO</span></div><div style="display:flex;gap:16px">👤 🛍️</div></div>
-<div class="banner"></div>
+<div class="header"><div>☰ ⌕</div><div style="text-align:center"><b>imanola</b><div style="font-size:6px;letter-spacing:2px">ELEGANCIA EN CUERO</div></div><div>👤 🛒</div></div>
+
 <div class="cats">
-<div class="cat"><div class="cat-circle">👜</div><p>Carteras |<br>Bandole...</p></div>
-<div class="cat"><div class="cat-circle">👢</div><p>Calzado</p></div>
-<div class="cat"><div class="cat-circle">👝</div><p>Accesorios</p></div>
-<div class="cat"><div class="cat-circle">%</div><p>Sale</p></div>
+<div class="cat active" onclick="filtrar('todo',this)"><div class="cat-circle">⊞</div><p>Todo</p></div>
+<div class="cat" onclick="filtrar('carteras',this)"><div class="cat-circle">👜</div><p>Carteras |<br>Bandolera</p></div>
+<div class="cat" onclick="filtrar('calzado',this)"><div class="cat-circle">👢</div><p>Calzado</p></div>
+<div class="cat" onclick="filtrar('accesorios',this)"><div class="cat-circle">👝</div><p>Accesorios</p></div>
+<div class="cat" onclick="filtrar('sale',this)"><div class="cat-circle">%</div><p>Sale</p></div>
 </div>
-<div class="title">COLECCIÓN</div>
-<div class="grid">
-<div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"></div><h4>Bandolera Marinera</h4></div>
-<div class="card"><div class="card-img" style="background:#6D4C78"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"></div><h4>Mochila PAUL</h4></div>
-<div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400"></div><h4>Modelo KENDRA</h4></div>
-<div class="card"><div class="card-img" style="background:#7A4E8E"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400"></div><h4>Modelo KRISBEL</h4></div>
+
+<div class="title" id="coleccion">COLECCIÓN</div>
+<div class="grid" id="grid"></div>
+
+<div id="modal">
+<div class="m-top"><span id="mBread" style="font-size:11px"></span><button onclick="document.getElementById('modal').style.display='none'" style="background:none;border:none;color:#F9B5C9;font-size:22px">✕</button></div>
+<div class="m-img"><img id="mImg"></div>
+<div class="m-body">
+<h2 id="mTitle"></h2>
+<div id="mPrice" style="font-size:20px;font-weight:900;margin:6px 0"></div>
+<div id="mCuota" style="font-size:12px;color:#777"></div>
+<div style="margin:14px 0;font-size:12px">COLOR: <span id="mColor" style="font-weight:700"></span> • TALLE: <span id="mTalle"></span></div>
+<div id="mChips"></div>
+<button class="btn" id="mBtn">AGREGAR AL CARRITO</button>
+<div class="detail" id="mDesc"></div>
 </div>
-<a class="wa" href="https://wa.me/5491123456789">W</a>
-</body>
-</html>
+</div>
+
+<script>
+const prods=[
+{title:"Bandolera Marinera KENDRA",tipo:"carteras",price:"$138.000,00",old:"",off:"",cuota:"24 cuotas de $12.189,43",color:"Suela / Negro / Hueso",talle:"Único",colores:["Suela","Negro","Hueso"],img:"https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600",desc:"<b>KENDRA, canchera y eterna.</b> Cuero grabado víbora. 100% cuero argentino, interior forrado, bolsillo YKK, 26x24x12cm, 448gr"},
+{title:"Mochila PAUL",tipo:"carteras",price:"$173.000,00",old:"",off:"",cuota:"24 cuotas de $15.280,95",color:"Negro / Hueso",talle:"Único",colores:["Negro","Hueso"],img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",desc:"<b>Mochila PAUL urbana.</b> 100% cuero, 23x28x11cm, 710gr, interior forrado, bolsillos YKK"},
+{title:"Porta celular BLONDIE",tipo:"accesorios",price:"$77.000,00",old:"$94.600,00",off:"19% OFF",cuota:"24 cuotas de $6.801,35",color:"CROCO SUELA, HUESO, VIVORA SUELA, NEGRO, VIVORA NEGRO",talle:"Único",colores:["CROCO SUELA","CROCO HUESO","VIVORA SUELA","CROCO NEGRO","VIVORA NEGRO"],img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600",desc:"Super canchero, ideal viaje. 15x17x2cm, 176gr, cuero víbora y croco"},
+{title:"Riñonera BRISELA",tipo:"carteras",price:"$95.000,00",old:"$122.900,00",off:"23% OFF",cuota:"24 cuotas de $8.391,27",color:"Negro",talle:"Único",colores:["Negro"],img:"https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600",desc:"Robusta unisex, 22x16x5cm, 370gr, cuero Flower"},
+{title:"Botineta ROSELLE",tipo:"calzado",price:"$179.500,00",old:"",off:"",cuota:"24 cuotas de $15.855,09",color:"Suela",talle:"36 37 38 39 40",colores:["Suela"],img:"https://images.unsplash.com/photo-1551107696-a4
