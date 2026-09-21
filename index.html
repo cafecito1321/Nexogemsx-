@@ -1,37 +1,114 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IMANOLA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>IMANOLA | Elegancia en Cuero Argentino</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#fff}
-.top{background:#3E224C;color:#F9B5C9;text-align:center;padding:8px;font-size:12px;font-weight:bold}
-header{background:#3E224C;padding:12px;text-align:center;color:#F9B5C9;font-weight:900;letter-spacing:3px;font-size:22px}
-.filtros{display:flex;gap:12px;padding:12px;overflow:auto}
-.filtros div{min-width:70px;height:70px;border-radius:50%;background:#4D2B5E;display:grid;place-items:center;color:white;font-size:24px;flex-shrink:0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#ddd}
-.card{background:white;padding-bottom:10px}
-.card-img{background:#4D2B5E;height:220px;display:flex;align-items:center;justify-content:center;color:white;font-size:40px}
-.card h3{font-size:12px;padding:8px 8px 0 8px;height:32px;overflow:hidden}
-.card b{padding:0 8px;font-size:14px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;-webkit-tap-highlight-color:transparent}
+:root{--v:#3E224C;--v2:#4D2B5E;--r:#F9B5C9;--bg:#fdf2f6}
+body{background:#fff;color:var(--v);overflow-x:hidden}
+.topbar{background:var(--v);color:var(--r);text-align:center;padding:9px 10px;font-size:11.5px;font-weight:700;letter-spacing:1.2px;position:sticky;top:0;z-index:50}
+.header{background:var(--v);display:flex;align-items:center;justify-content:space-between;padding:10px 14px;position:sticky;top:33px;z-index:49}
+.h-left,.h-right{color:var(--r);font-size:20px;display:flex;gap:16px;align-items:center}
+.logo{text-align:center;color:var(--r);line-height:0.9}
+.logo b{display:block;font-size:24px;font-weight:800;letter-spacing:3px;text-transform:lowercase}
+.logo span{display:block;font-size:8px;font-weight:600;letter-spacing:3.5px;margin-top:3px;opacity:.9}
+.cats{padding:12px 12px 4px 12px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{min-width:76px;text-align:center;flex-shrink:0}
+.cat-circle{width:72px;height:72px;border-radius:50%;background:var(--v2);display:grid;place-items:center;font-size:28px;color:#fff;border:2px solid transparent}
+.cat.active.cat-circle{background:var(--r);border-color:var(--v);color:var(--v)}
+.cat p{font-size:10px;font-weight:600;margin-top:6px;line-height:1.1;color:var(--v)}
+.title-section{text-align:center;padding:18px 0 10px 0;background:var(--bg);border-top:1px solid #f2d6de;border-bottom:1px solid #f2d6de;margin-top:8px}
+.title-section h2{font-size:15px;letter-spacing:5px;font-weight:800}
+.grid{display:grid;grid-template-columns:1fr 1fr;background:#e5d5db;gap:1px}
+.product{background:#fff;position:relative;cursor:pointer}
+.product-img{height:235px;background:var(--v2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.product-img img{width:100%;height:100%;object-fit:cover;display:block}
+.badge-off{position:absolute;top:9px;left:9px;background:#fff;color:var(--v);font-size:9px;font-weight:800;padding:5px 10px;border-radius:20px;letter-spacing:.3px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.badge-nostock{background:#111;color:#fff}
+.p-info{padding:10px 11px 12px 11px}
+.p-info h3{font-size:11.5px;font-weight:600;line-height:1.25;min-height:32px;color:#222}
+.p-price{margin-top:6px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.p-old{font-size:11px;color:#999;text-decoration:line-through}
+.p-new{font-size:14px;font-weight:800;color:#111}
+.p-cuotas{font-size:10px;color:#666;margin-top:3px}
+.p-colores{font-size:10.5px;color:#777;margin-top:4px}
+
+/* MODAL PRODUCTO */
+#modal{position:fixed;inset:0;background:#fff;z-index:200;display:none;flex-direction:column}
+.modal-head{background:var(--v);color:var(--r);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:13px}
+.modal-head span:last-child{font-size:22px;cursor:pointer;padding:0 6px}
+.carousel{position:relative;height:58vh;min-height:400px;background:var(--v2);overflow:hidden;touch-action:pan-y}
+.track{display:flex;height:100%;transition:transform 0.35s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.track img{min-width:100%;width:100%;height:100%;object-fit:contain;background:var(--v2)}
+.btn-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.9);font-size:22px;display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.btn-prev{left:10px}.btn-next{right:10px}
+.dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;align-items:center;background:rgba(0,0,0,.25);padding:6px 10px;border-radius:20px;backdrop-filter:blur(6px)}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);display:block;transition:all.25s}
+.dots i.on{width:18px;background:var(--r)}
+.counter{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;font-weight:600;padding:5px 11px;border-radius:20px}
+.modal-body{padding:16px;overflow:auto;flex:1}
+.modal-body h1{font-size:17px;line-height:1.2}
+.modal-body.price-box{margin-top:12px;background:var(--bg);padding:12px;border-radius:10px}
+.btn-wa{display:block;text-align:center;background:var(--v);color:var(--r);padding:16px;border-radius:12px;margin-top:18px;text-decoration:none;font-weight:800;letter-spacing:.5px;font-size:13px}
+.btn-wa:active{transform:scale(.98)}
 </style>
 </head>
 <body>
-<div class="top">3 Y 6 CUOTAS SIN INTERÉS</div>
-<header>imanola</header>
-<div class="filtros">
-<div style="background:#FF2D7A">⊞</div><div>👜</div><div>👢</div><div>👛</div><div>%</div>
+<div class="topbar">3 Y 6 CUOTAS SIN INTERÉS • ENVÍO GRATIS + $150.000</div>
+<div class="header"><div class="h-left">☰</div><div class="logo"><b>imanola</b><span>ELEGANCIA EN CUERO</span></div><div class="h-right"><span>🔍</span><span>👜 0</span></div></div>
+
+<div class="cats" id="cats"></div>
+<div class="title-section"><h2>COLECCIÓN</h2></div>
+<div class="grid" id="grid"></div>
+
+<div id="modal">
+<div class="modal-head"><span id="mName">Producto</span><span onclick="closeM()">✕</span></div>
+<div class="carousel" id="car"><div class="track" id="track"></div><button class="btn-nav btn-prev" onclick="move(-1)">‹</button><button class="btn-nav btn-next" onclick="move(1)">›</button><div class="dots" id="dots"></div><div class="counter" id="counter"></div></div>
+<div class="modal-body">
+<h1 id="dName"></h1>
+<div class="price-box"><div id="dPrice"></div><div style="font-size:11px;color:#666;margin-top:6px">100% cuero argentino • 3 y 6 cuotas sin interés</div></div>
+<p style="margin-top:14px;font-size:12.5px;line-height:1.5;color:#555">Diseño y fabricación nacional. Interior forrado, herrajes reforzados y correas regulables. Cambios sin cargo por 30 días.</p>
+<a id="waLink" class="btn-wa" target="_blank">CONSULTAR POR WHATSAPP</a>
 </div>
-<h2 style="text-align:center;padding:14px;letter-spacing:4px;color:#3E224C">COLECCIÓN</h2>
-<div class="grid">
-<div class="card"><div class="card-img">👜</div><h3>Porta celular BLONDIE</h3><b>$77.000</b></div>
-<div class="card"><div class="card-img">👝</div><h3>Riñonera BRISELA</h3><b>$95.000</b></div>
-<div class="card"><div class="card-img">👢</div><h3>Botineta ROSELLE</h3><b>$179.500</b></div>
-<div class="card"><div class="card-img">👛</div><h3>Billetera Pocket ANNE</h3><b>$55.840</b></div>
-<div class="card"><div class="card-img">🥾</div><h3>Botas TAYRA</h3><b>$272.000</b></div>
-<div class="card"><div class="card-img">👜</div><h3>Cartera LUNA</h3><b>$89.000</b></div>
 </div>
+
+<script>
+const categorias=[{n:"Todo",e:"⊞"},{n:"Carteras | Bandolera",e:"👜"},{n:"Calzado",e:"👢"},{n:"Accesorios",e:"👛"},{n:"Sale",e:"%"}];
+const productos=[
+{t:"Porta celular BLONDIE",old:"$94.600",now:"$77.000",off:"19% OFF",col:"5 colores",imgs:["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800","https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800"]},
+{t:"Riñonera BRISELA",old:"$122.900",now:"$95.000",off:"23% OFF",col:"2 colores",imgs:["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800","https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800"]},
+{t:"Botineta ROSELLE",old:"",now:"$179.500",off:"",col:"5 colores",imgs:["https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800","https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=800"]},
+{t:"Botas TAYRA",old:"",now:"$272.000",off:"NUEVO",col:"2 colores",imgs:["https://images.unsplash.com/photo-1603808033587-935942847da3?w=800","https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=800"]},
+{t:"Billetera Pocket ANNE",old:"$69.800",now:"$55.840",off:"SIN STOCK",col:"3 colores",imgs:["https://images.unsplash.com/photo-1627123424574-724758594e93?w=800"]},
+{t:"Mochila LUNA",old:"$110.000",now:"$89.000",off:"19% OFF",col:"4 colores",imgs:["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800","https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800"]},
+];
+
+const catsEl=document.getElementById('cats');
+categorias.forEach((c,i)=>{catsEl.innerHTML+=`<div class="cat ${i==0?'active':''}" onclick="filterCat(this)"><div class="cat-circle">${c.e}</div><p>${c.n}</p></div>`});
+function filterCat(el){document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));el.classList.add('active');}
+
+const grid=document.getElementById('grid');
+function render(){grid.innerHTML="";productos.forEach((p,i)=>{grid.innerHTML+=`
+<div class="product" onclick="openM(${i})">
+<div class="product-img">${p.off?`<span class="badge-off ${p.off.includes('STOCK')?'badge-nostock':''}">${p.off}</span>`:''}<img loading="lazy" src="${p.imgs[0]}" alt="${p.t}"></div>
+<div class="p-info"><h3>${p.t}</h3><div class="p-price">${p.old?`<span class="p-old">${p.old}</span>`:''}<span class="p-new">${p.now}</span></div><div class="p-cuotas">3 cuotas sin interés de ${(parseInt(p.now.replace(/\D/g,''))/3).toLocaleString('es-AR')}</div><div class="p-colores">${p.col}</div></div>
+</div>`});}
+render();
+
+let cur=0, idx=0, startX=0;
+const track=document.getElementById('track'),dots=document.getElementById('dots'),counter=document.getElementById('counter'),modal=document.getElementById('modal');
+function openM(i){cur=i;idx=0;const p=productos[i];track.innerHTML=p.imgs.map(s=>`<img src="${s}">`).join('');dots.innerHTML=p.imgs.map((_,k)=>`<i class="${k==0?'on':''}"></i>`).join('');document.getElementById('mName').innerText=p.t;document.getElementById('dName').innerText=p.t;document.getElementById('dPrice').innerHTML=`${p.old?`<span class="p-old">${p.old}</span> `:''}<span class="p-new" style="font-size:18px">${p.now}</span> ${p.off?`<span style="background:#111;color:#fff;padding:3px 8px;border-radius:12px;font-size:10px;margin-left:6px">${p.off}</span>`:''}`;document.getElementById('waLink').href=`https://wa.me/5491112345678?text=Hola quiero ${encodeURIComponent(p.t)} ${encodeURIComponent(p.now)}`;update();modal.style.display='flex';document.body.style.overflow='hidden';}
+function closeM(){modal.style.display='none';document.body.style.overflow='auto';}
+function update(){track.style.transform=`translateX(-${idx*100}%)`;document.querySelectorAll('#dots i').forEach((e,k)=>e.classList.toggle('on',k===idx));counter.textContent=`${idx+1} / ${productos[cur].imgs.length}`;}
+function move(d){idx=(idx+d+productos[cur].imgs.length)%productos[cur].imgs.length;update();}
+const car=document.getElementById('car');
+car.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
+car.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45) move(dx<0?1:-1)},{passive:true});
+document.addEventListener('keydown',e=>{if(modal.style.display==='flex'){if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1);if(e.key==='Escape')closeM();}});
+</script>
 </body>
-</html>
+  </html>
